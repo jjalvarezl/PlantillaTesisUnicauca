@@ -1,0 +1,120 @@
+%input macros (i.e. write your own macros file called MacroFile1.tex)
+%\include{Macros/MacroFile1}
+
+ \documentclass[oneside,11pt]{Classes/CUEDthesisPSnPDF}
+ 
+
+\ifpdf
+    \pdfinfo { /Title  (Titulo de mi tesis)
+               /Creator (TeX)
+               /Producer (pdfTeX)
+               /Author (Jhon Jairo Alvarez Londoño jjalvarezl@unicauca.edu.co)
+               /CreationDate (D:20140511000000)  %format D:YYYYMMDDhhmmss
+               /ModDate (D:20131015135448)
+               /Subject (De que se trata la tesis)
+               /Keywords (Mi palabra clave 1; Mi palabra clave 2; ...)}
+    \pdfcatalog { /PageMode (/UseOutlines)
+                  /OpenAction (fitbh)  }
+\fi
+
+\title{Titulo de mi tesis}
+
+%\ifpdf
+%  \author{\href{mailto:jhon.jairo.alvarez.londono@hotmail.com}{Jhon Jairo Alvarez Londoño}}
+%  \collegeordept{\href{http://portal.unicauca.edu.co/versionP/acerca-de-unicauca/facultades/facultad-de-ingenieria-electronica-y-telecomunicaciones}{Departmento de Sistemas de la Información}}
+%  \university{\href{http://www.unicauca.edu.co}{Universidad del Cauca}}
+% insert below the file name that contains the crest in-place of 'UnivShield'
+%  \crest{\includegraphics[width=30mm]{EscudoUnicauca}}
+%\else
+  \degree{Grado al que aspiro}
+  \author{\href{mailto:jjalvarezl@unicauca.edu.co}{Jhon Jairo Alvarez Londoño}}
+  \thesistutor {Director: Tutor de la tesis}
+  \college{Facultad}
+  \department{Departamento}
+  \university{Universidad del Cauca}
+  \researchgroup{Nombre del grupo de investigación extendido}
+  \researchgroupname{Nombre acortado del grupo de investigación}
+  \researchgroupinfo{Especialidad de la tesis}
+  \date{Popayán, \today}
+% insert below the file name that contains the crest in-place of 'UnivShield'
+  \crest{\includegraphics[viewport = 0 0 292 336, width=30mm]{EscudoUnicauca}}
+%  \crest{\includegraphics[bb = 0 0 292 336, width=30mm]{EscudoUnicauca}}
+%\fi
+%
+% insert below the file name that contains the crest in-place of 'UnivShield'
+% \crest{\IncludeGraphicsW{UnivShield}{40mm}{14 14 73 81}}
+%
+%\renewcommand{\submittedtext}{change the default text here if needed}
+
+
+% turn of those nasty overfull and underfull hboxes
+% \hbadness=10000
+% \hfuzz=50pt
+
+% Put all the style files you want in the directory StyleFiles and usepackage like this:
+%\usepackage{StyleFiles/watermark}
+
+% Comment out the next line to get single spacing
+%\onehalfspacing
+\begin{document}
+\urlstyle{rm}
+%\bstctlcite{IEEEexample:BSTcontrol} % Ver el control "IEEEexample" en el archivo
+% .bib (inhabilita el "----" de los autores repetidos).
+%\language{english}
+
+% A page with the abstract on including title and author etc may be
+% required to be handed in separately. If this is not so, then comment
+% the below 3 lines (between '\begin{abstractseparte}' and 
+% 'end{abstractseparate}'), normally like a declaration ... needs some more
+% work, mind as environment abstracts creates a new page!
+% \begin{abstractseparate}
+%   \input{Abstract/abstract}
+% \end{abstractseparate}
+
+
+
+
+% Using the watermark package which is in StyleFiles/
+% and to remove DRAFT COPY ONLY appearing on the top of all pages comment out below line
+%\watermark{DRAFT COPY ONLY}
+\maketitle
+
+%set the number of sectioning levels that get number and appear in the contents
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+
+\frontmatter % book mode only
+\pagenumbering{roman}
+\include{Dedication/dedication}
+\include{Acknowledgement/acknowledgement}
+\include{Abstract/abstract}
+
+\tableofcontents
+\listoffigures
+\listoftables
+
+%\printnomenclature  %% Print the nomenclature
+%\addcontentsline{toc}{chapter}{Nomenclature}
+
+\mainmatter % book mode only
+\setlength{\parskip}{0.2cm} % This command changes the space between
+\include{Introduction/introduction}
+\include{Chapter1/chapter1}
+\include{Chapter2/chapter2}
+\include{Conclusions/conclusions}
+
+\bibliographystyle{IEEEtran}
+%\bibliographystyle{plainnat}
+%\bibliographystyle{Classes/CUEDbiblio}
+%\bibliographystyle{Classes/jmb}
+%\bibliographystyle{Classes/jmb} % bibliography style
+\renewcommand{\bibname}{Bibliografía} % changes default name Bibliography to Bibliografía
+%\bibliography{References/references} % References file
+\bibliography{IEEEabrv,References/references}
+
+%\backmatter % book mode only
+\appendix
+\makeatletter
+\renewcommand{\@chapapp}{Anexo} % Si se quita esta linea o la anterior el capitulo no se llamará anexo sino apendice
+\include{Appendix1/appendix1}
+\end{document}
