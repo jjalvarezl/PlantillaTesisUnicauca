@@ -65,6 +65,10 @@
 \usepackage{xcolor} % Color de texto de url por href
 \usepackage[normalem]{ulem} % Parametro para delineado usado en modificacion de la URL
 \usepackage{footmisc} % Cambio de fuente de pie de página.
+\usepackage{titlesec} % Used for change chapter title style
+\usepackage{pgfgantt} % Used for drawing Gantt charts.
+\usepackage{cite} % Used for change cite stile to [a-b]
+\usepackage{refcheck} %Used for show the references' keys (dont forget comment on a release or final version). 
 %Bibliography
 %uncomment next line to change bibliography name to references for Book document class
 \renewcommand{\bibname}{Bibliografía}
